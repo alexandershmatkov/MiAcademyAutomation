@@ -15,7 +15,7 @@ namespace MiAcademyFlowAutomation.Page_Objects
 
         // Header button
         public IWebElement ApplyButton1 =>
-            _driver.FindElement(By.XPath("//a[contains(@class, 'has-theme-palette-2-background-color') and contains(., 'Apply to Our School')]"));
+            _driver.FindElement(By.XPath("//a[text()='Apply Now']"));
 
         // Button in a middle of the page
         public IWebElement ApplyButton2 =>

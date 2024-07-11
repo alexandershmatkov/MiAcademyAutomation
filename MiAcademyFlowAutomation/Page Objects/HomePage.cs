@@ -25,9 +25,8 @@ namespace MiAcademyFlowAutomation.Page_Objects
 
         public void ClickMiaPrepLink()
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.ElementToBeClickable(MiaPrepLink));
-            MiaPrepLink.Click();
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            js.ExecuteScript("arguments[0].click();", MiaPrepLink);
         }
     }
 }

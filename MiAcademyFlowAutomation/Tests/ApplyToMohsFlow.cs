@@ -1,7 +1,7 @@
-﻿using MiAcademyFlowAutomation.Page_Objects;
+﻿using MiAcademyFlowAutomation.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using NUnit.Framework.Legacy;
+using OpenQA.Selenium;
 
 namespace MiAcademyFlowAutomation.Tests
 {
@@ -42,9 +42,9 @@ namespace MiAcademyFlowAutomation.Tests
             _homePage.ClickMiaPrepLink();
             _onlineHighSchoolPage.ClickApplyButton(applyButton);
             _mohsApplicationFirstPage.ClickNextButton();
-
             _mohsParentInformationPage.FillOutParentForm("John", "Doe", "John.Doe@example.com", "1234567890");
             _mohsParentInformationPage.ClickNextButton();
+            
             ClassicAssert.IsTrue(_mohsStudentInformationPage.IsItStudentPage(), "Test did not reach Student Information Page");
         }
     }

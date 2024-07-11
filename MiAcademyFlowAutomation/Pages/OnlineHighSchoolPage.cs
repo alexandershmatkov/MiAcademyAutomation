@@ -1,30 +1,26 @@
 ﻿using OpenQA.Selenium;
 using System;
-using OpenQA.Selenium.Interactions;
 
-namespace MiAcademyFlowAutomation.Page_Objects
+namespace MiAcademyFlowAutomation.Pages
 {
-    public class OnlineHighSchoolPage
+    public class OnlineHighSchoolPage : BasePage
     {
-        private readonly IWebDriver _driver;
-
-        public OnlineHighSchoolPage(IWebDriver driver)
+        public OnlineHighSchoolPage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
         }
 
         // Header button
         public IWebElement ApplyButton1 =>
-            _driver.FindElement(By.XPath("//a[text()='Apply Now']"));
+            FindElement(By.XPath("//a[text()='Apply Now']"));
 
         // Button in a middle of the page
         public IWebElement ApplyButton2 =>
-            _driver.FindElement(By.XPath(
+            FindElement(By.XPath(
                 "//a[contains(@class, 'has-theme-palette-9-background-color') and contains(., 'Apply to Our School')]"));
 
         // Button from the bottom of the page
         public IWebElement ApplyButton3 =>
-            _driver.FindElement(By.XPath("//a[contains(@class, 'kt-button') and contains(., 'Apply to Our School')]"));
+            FindElement(By.XPath("//a[contains(@class, 'kt-button') and contains(., 'Apply to Our School')]"));
 
         public void ClickApplyButton(string buttonNumber)
         {
@@ -33,14 +29,13 @@ namespace MiAcademyFlowAutomation.Page_Objects
                 switch (buttonNumber)
                 {
                     case "ApplyButton1":
-                        ApplyButton1.Click();
+                        ClickElement(ApplyButton1);
                         break;
                     case "ApplyButton2":
-                        ApplyButton2.Click();
+                        ClickElement(ApplyButton2);
                         break;
                     case "ApplyButton3":
-                        Actions actions = new Actions(_driver);
-                        ApplyButton3.Click();
+                        ClickElement(ApplyButton3);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(buttonNumber));

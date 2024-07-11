@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
 
-namespace MiAcademyFlowAutomation.Page_Objects
+namespace MiAcademyFlowAutomation.Pages
 {
     public class MohsStudentInformationPage
     {

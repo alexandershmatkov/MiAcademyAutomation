@@ -32,6 +32,8 @@ To run the tests:
 
 1. Clone the repository.
 2. Open the solution in Visual Studio.
-3. Restore NuGet packages.
-4. Build the solution.
-5. Run the tests using the Test Explorer.
+3. Update the browser configuration in the `app.config` file:
+   - Change `<add key="Browser" value="Chrome" />` to `<add key="Browser" value="Firefox" />` for Firefox.
+4. Restore NuGet packages.
+5. Build the solution.
+6. Run the tests using the Test Explorer.

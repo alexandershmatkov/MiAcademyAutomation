@@ -16,16 +16,20 @@ namespace MiAcademyFlowAutomation
             switch (browser.ToLower())
             {
                 case "firefox":
-                    driver = new FirefoxDriver();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.AddArgument("--width=1280");
+                    firefoxOptions.AddArgument("--height=800");
+                    driver = new FirefoxDriver(firefoxOptions);
                     break;
                 default:
-                    driver = new ChromeDriver();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.AddArgument("window-size=1280,800");
+                    driver = new ChromeDriver(chromeOptions);
                     break;
             }
 
             driver.Manage().Timeouts().ImplicitWait =
                 TimeSpan.FromSeconds(10);
-            driver.Manage().Window.Maximize();
             return driver;
         }
     }

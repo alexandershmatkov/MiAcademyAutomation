@@ -10,16 +10,16 @@ namespace MiAcademyFlowAutomation.Pages
         }
 
         // Header button
-        public IWebElement ApplyButton1 =>
+        private IWebElement ApplyButton1 =>
             FindElement(By.XPath("//a[text()='Apply Now']"));
 
         // Button in a middle of the page
-        public IWebElement ApplyButton2 =>
+        private IWebElement ApplyButton2 =>
             FindElement(By.XPath(
                 "//a[contains(@class, 'has-theme-palette-9-background-color') and contains(., 'Apply to Our School')]"));
 
         // Button from the bottom of the page
-        public IWebElement ApplyButton3 =>
+        private IWebElement ApplyButton3 =>
             FindElement(By.XPath("//a[contains(@class, 'kt-button') and contains(., 'Apply to Our School')]"));
 
         public void ClickApplyButton(string buttonNumber)

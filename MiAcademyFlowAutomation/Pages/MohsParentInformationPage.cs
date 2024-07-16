@@ -9,21 +9,24 @@ namespace MiAcademyFlowAutomation.Pages
         {
         }
 
-        public IWebElement FirstNameField => FindElement(By.XPath("//input[@elname='First']"));
+        private IWebElement FirstNameField => FindElement(By.XPath("//input[@elname='First']"));
 
-        public IWebElement LastNameField => FindElement(By.XPath("//input[@elname='Last']"));
+        private IWebElement LastNameField => FindElement(By.XPath("//input[@elname='Last']"));
 
-        public IWebElement EmailField => FindElement(By.XPath("//input[@name='Email']"));
+        private IWebElement EmailField => FindElement(By.XPath("//input[@name='Email']"));
 
-        public IWebElement PhoneField => FindElement(By.XPath("//input[@id='PhoneNumber']"));
+        private IWebElement PhoneField => FindElement(By.XPath("//input[@id='PhoneNumber']"));
 
-        public IWebElement SecondParentInfoDropDown =>
+        private IWebElement SecondParentInfoDropDown =>
             FindElement(By.XPath("//span[@class='select2-selection select2-selection--single select2FormCont' and @role='combobox' and @aria-labelledby='select2-Dropdown-arialabel-container']"));
 
-        public IWebElement SecondParentInfoOptionNo =>
+        private IWebElement SecondParentInfoOptionNo =>
             FindElement(By.XPath("//li[contains(@class, 'select2-results__option') and text()='No']"));
 
-        public IWebElement PreferredStartDateField => FindElement(By.XPath("//input[@id='Date-date']"));
+        private IWebElement PreferredStartDateField => FindElement(By.XPath("//input[@id='Date-date']"));
+
+        private IWebElement NextButton =>
+            FindElement(By.XPath("//button[contains(@aria-label, 'Navigates to page 3 out of 4') and @elname='next']"));
 
 
         public void FillOutParentForm(string firstName, string lastName, string email, string phone)
@@ -43,13 +46,6 @@ namespace MiAcademyFlowAutomation.Pages
             PreferredStartDateField.SendKeys(date);
         }
 
-        public void ClickNextButton()
-        {
-            IWebElement nextButton =
-                FindElement(
-                    By.XPath("//button[contains(@aria-label, 'Navigates to page 3 out of 4') and @elname='next']"));
-            ClickElement(nextButton);
-        }
-
+        public void ClickNextButton() => ClickElement(NextButton);
     }
 }

@@ -5,25 +5,31 @@ using System;
 
 namespace MiAcademyFlowAutomation.Pages
 {
-    public class MohsStudentInformationPage
+    public class MohsStudentInformationPage : BasePage
     {
-        private readonly IWebDriver _driver;
-
-        public MohsStudentInformationPage(IWebDriver driver)
+        public MohsStudentInformationPage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
         }
 
-        public bool IsItStudentPage()
+        private IWebElement GetStudentPageHeader()
+        {
+            return Wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(
+                "//li[@id='Section3-li']//h2[contains(@class, 'advLabelName')]/div/b[text()='Student Information']")));
+        }
+
+        // Check that Student Information Header is presented on the Student info page
+        public bool IsStudentPageHeaderVisible()
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-                wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(
-                    "//li[@id='Section3-li']//h2[contains(@class, 'advLabelName')]/div/b[text()='Student Information']")));
-                return true;
+                IWebElement studentPageHeader = GetStudentPageHeader();
+                return studentPageHeader.Displayed;
             }
             catch (NoSuchElementException)
+            {
+                return false;
+            }
+            catch (WebDriverTimeoutException)
             {
                 return false;
             }

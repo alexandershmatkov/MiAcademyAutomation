@@ -45,7 +45,7 @@ namespace MiAcademyFlowAutomation.Tests
             _mohsParentInformationPage.FillOutParentForm("John", "Doe", "John.Doe@example.com", "1234567890");
             _mohsParentInformationPage.ClickNextButton();
             
-            ClassicAssert.IsTrue(_mohsStudentInformationPage.IsItStudentPage(), "Test did not reach Student Information Page");
+            ClassicAssert.IsTrue(_mohsStudentInformationPage.IsStudentPageHeaderVisible(), "Test did not reach Student Information Page");
         }
     }
 }
